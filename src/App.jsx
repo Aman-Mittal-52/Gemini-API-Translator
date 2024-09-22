@@ -36,7 +36,7 @@ function App() {
   }
 
   return (
-    <Box className='app' w='80%' m='auto' my={10} border='5px solid' color='#fff' borderRadius='2rem' p={[6, 10, 16]} pos='relative' pb={['680px', '550px']}>
+    <Box className='app' w='80%' m='auto' my={10} border='5px solid' color='#fff' borderRadius='2rem' p={[6, 10, 16]} pos='relative' pb={['100px', '160px']}>
       
       <Center p={[3, 6]} mb={[4, 6]}>
         <Text fontSize={['3xl', '5xl']} fontWeight='bold'>Translator App ~ Gemini</Text>
