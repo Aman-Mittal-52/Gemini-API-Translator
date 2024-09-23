@@ -24,11 +24,15 @@ function App() {
   const [translatedText, setTranslatedText] = useState('')
   const [language, setLanguage] = useState('English')
 
+  const [loading, setLoading] = useState(false);
+
   async function translateText(text, language) {
     try {
+      setLoading(true);
       const prompt = `this is the text: ${text}, and you have to translate the text into ${language}. make sure the output is must be translated text only! and keep detect the language self!`;
       const result = await model.generateContent(prompt);
       setTranslatedText(result.response.text());
+      setLoading(false);
     } catch (error) {
       setTranslatedText("Sorry, inappropriate or offensive content cannot be translated, Sorry we can\'t help you with this message!");
       console.error(error);
@@ -37,19 +41,19 @@ function App() {
 
   return (
     <Box className='app' w='80%' m='auto' my={10} border='5px solid' color='#fff' borderRadius='2rem' p={[6, 10, 16]} pos='relative' pb={['100px', '160px']}>
-      
+
       <Center p={[3, 6]} mb={[4, 6]}>
         <Text fontSize={['3xl', '5xl']} fontWeight='bold'>Translator App ~ Gemini</Text>
       </Center>
 
-      <FlexTranslateLanguage onChange={(e) => setText(e.target.value)} setLanguage={(e) => setLanguage(e.target.value)} text={text} />
+      <FlexTranslateLanguage onChange={(e) => setText(e.target.value)} handlePress={translateText} setLanguage={(e) => setLanguage(e.target.value)} text={text} language={language} />
 
       <Box mt={4} w='full'>
-        <Button onClick={() => translateText(text, language)} w='full'>Translate</Button>
+        <Button isLoading={loading} loadingText={`Sending words to ${language} school... translating!`} onClick={() => translateText(text, language)} w='full'>Translate</Button>
       </Box>
 
       <Text mt={4} fontWeight="bold">Translated Text:</Text>
-      <Text>{translatedText}</Text>
+      <Text fontSize={'xl'}>{translatedText}</Text>
 
       <Box position='absolute' bottom={0} right={0} fontWeight='bold' m={['15px', '30px']} fontSize={['sm', 'md']} color='#fff'>
         E-Mail: <a href="mailto:Amanmittle4321@gmail.com" style={{ color: '#fff', textDecoration: 'underline' }}>Amanmittle4321@gmail.com</a>
