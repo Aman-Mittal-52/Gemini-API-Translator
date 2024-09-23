@@ -40,7 +40,7 @@ function App() {
   }
 
   return (
-    <Box className='app' w='80%' m='auto' my={10} border='5px solid' color='#fff' borderRadius='2rem' p={[6, 10, 16]} pos='relative' pb={['130px','130px','130px', '200px']}>
+    <Box className='app' w='80%' m='auto' my={10} border='5px solid' color='#fff' borderRadius='2rem' p={[6, 10, 16]} pos='relative' pb={'100px'}>
 
       <Center p={[3, 6]} mb={[4, 6]}>
         <Text fontSize={['3xl', '5xl']} fontWeight='bold'>Translator App ~ Gemini</Text>
@@ -53,7 +53,7 @@ function App() {
       </Box>
 
       <Text mt={4} fontWeight="bold">Translated Text:</Text>
-      <Text fontSize={'xl'}>{translatedText}</Text>
+      <Text fontSize={'xl'} mb={'30px'}>{translatedText}</Text>
 
       <Box position='absolute' bottom={0} right={0} fontWeight='bold' m={['15px', '30px']} fontSize={['sm', 'md']} color='#fff'>
         E-Mail: <a href="mailto:Amanmittle4321@gmail.com" style={{ color: '#fff', textDecoration: 'underline' }}>Amanmittle4321@gmail.com</a>
